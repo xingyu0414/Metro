@@ -18,7 +18,7 @@ Minecraft 1.21.11 Fabric **服务端**地铁广播模组：是Metro插件的fabr
 | 项目 | 要求 |
 |------|------|
 | Minecraft | 1.21.11 |
-| Fabric Loader | 0.19.5+ |
+| Fabric Loader | 0.16.0+ |
 | Fabric API | 0.141.6+1.21.11（必需） |
 | LuckPerms | 可选（权限精细化时安装） |
 | 运行端 | 仅服务端；客户端为原版即可 |
