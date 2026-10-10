@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "xy_broadcast",
+	"version": "2.0.2",
+	"name": "Xy Broadcast Metro",
+	"description": "Xy Broadcast Metro: sign-title broadcast on moving minecarts, golden-hoe region selection, /xy station & line management, minecart spawn/stop/launch. Server-side only, vanilla clients work.",
+	"authors": [],
+	"license": "MIT",
+	"environment": "server",
+	"entrypoints": {
+		"server": [
+			"__xingyu_broadcast.Xy_broadcast"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"luckperms": "*"
+	}
+}

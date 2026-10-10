@@ -1,0 +1,98 @@
+{
+  "plugin": {
+    "reload_success": "&a[XyBroadcast] 语言文件已重载。"
+  },
+
+  "command": {
+    "players_only": "&c该命令仅限玩家使用。",
+    "not_exist": "&c不存在",
+    "world_not_found": "&c世界不存在",
+    "stop_not_found": "&c未找到停靠区: {stop_id}",
+    "line_not_found": "&c未找到线路: {line_id}"
+  },
+
+  "selection": {
+    "corner1_set": "&a已设置角点1 &7({x}, {y}, {z})",
+    "corner2_set": "&a已设置角点2 &7({x}, {y}, {z})",
+    "interactable_hint": "&e该方块可交互，请潜行右键以设置角点2"
+  },
+
+  "stop": {
+    "list_empty": "&7暂无停靠区",
+    "list_header": "&6=== 停靠区列表 ===",
+    "list_item": "&a{stop_id} &7- &f{stop_name}",
+    "create_exists": "&c停靠区ID {stop_id} 已存在!",
+    "corners_missing": "&c请先用金锄设置角点1和角点2",
+    "corners_world_mismatch": "&c两个角点必须在同一世界",
+    "create_success": "&a已创建停靠区 &f{stop_id} &7({stop_name})",
+    "setcorners_missing": "&c请先用金锄设置角点",
+    "setcorners_success": "&a已更新 &f{stop_id} &a的角点",
+    "delete_success": "&a已删除停靠区 &f{stop_id}",
+    "rename_success": "&a已重命名",
+    "setdirect_not_rail": "&c你必须站在铁轨上",
+    "setdirect_not_in_area": "&c当前不在任何停靠区范围内",
+    "setdirect_success": "&a已为 &f{stop_id} &a设置发车点 &7({x}, {y}, {z}) &a朝向 yaw={yaw}",
+    "setdirect_perpendicular": "&e警告：你面朝的方向与铁轨走向垂直，发车时会自动沿铁轨方向修正；建议重新站上铁轨朝行进方向执行 setdirect",
+    "transfer_updated": "&a已更新换乘线路",
+    "transfers_header": "&6换乘线路: &f{transfers}",
+    "info_header": "&6=== {stop_id} ===",
+    "info_name": "&e名称: &f{stop_name}",
+    "info_corner1": "&e角点1: &f{corner1}",
+    "info_corner2": "&e角点2: &f{corner2}",
+    "info_stoppoint": "&e发车点: &f{stoppoint} &e朝向: &f{yaw}",
+    "info_transfers": "&e换乘: &f{transfers}",
+    "tp_success": "&a已传送",
+    "point_not_set": "未设置",
+    "none": "无"
+  },
+
+  "line": {
+    "list_empty": "&7暂无线路",
+    "list_header": "&6=== 线路列表 ===",
+    "list_item": "&a{line_id} &7- &f{line_name} &7颜色:{color}",
+    "create_exists": "&c线路ID {line_id} 已存在!",
+    "create_success": "&a已创建线路 &f{line_id} &7颜色:{color}",
+    "delete_success": "&a已删除线路 &f{line_id}",
+    "rename_success": "&a已重命名",
+    "setcolor_success": "&a已设置颜色: {color}",
+    "setterminus_success": "&a已设置终点方向",
+    "addstop_success": "&a已添加 &f{stop_id}",
+    "addstop_fail": "&c线路或停靠区不存在",
+    "delstop_success": "&a已移除",
+    "delstop_fail": "&c线路不存在",
+    "stops_header": "&6=== {line_name} &6停靠区 ===",
+    "stops_item": "&e{index}. &a{stop_id} &7- &f{stop_name}",
+    "stops_invalid": "?",
+    "setcircle_on": "&a环线: 是",
+    "setcircle_off": "&a环线: 否"
+  },
+
+  "interact": {
+    "spawn_countdown": "&a[XY] {seconds}秒后生成矿车...",
+    "boarding_countdown": "&a[XY] {seconds}秒后发车...",
+    "launched": "&a[XY] 已发车",
+    "launch_blocked": "&c[XY] 发车失败：前方轨道有矿车阻挡，将自动重试",
+    "launch_blocked_giveup": "&c[XY] 发车失败：前方轨道持续被阻挡，请下车后重新乘车",
+    "stop_wait": "&a[XY] 停车{seconds}秒...",
+    "terminus_board": "&e[XY] 终点站，{seconds}秒后强制下车",
+    "terminus_notice": "&e[XY] 此站为终点站，请到对侧站台乘车",
+    "terminus_kick": "&e已到达终点站，强制下车"
+  },
+
+  "title": {
+    "enabled": true,
+    "fade_in": 5,
+    "stay": 60,
+    "fade_out": 10,
+    "refresh_interval": 100,
+    "line1": "{line_color}{line_name}&f·{stop_name}",
+    "line1_no_line": "&f{stop_name}",
+    "line2": "&e开往：&f{terminal} &7| &e下一站：&f{next} &7| &e可换乘：&f{transfers}",
+    "line2_no_line": "&7该站台暂无线路信息",
+    "terminal_circle": "环线",
+    "terminal_unset": "未知方向",
+    "no_next": "本次列车终点",
+    "transfers_none": "无",
+    "transfers_sep": "，"
+  }
+}
