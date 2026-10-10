@@ -1,8 +1,8 @@
 # Xy Broadcast Metro
 
 Minecraft 1.21.11 Fabric **服务端**地铁广播模组：是Metro插件的fabric移植版
-此模组使用了Vibe Coding (✿◡‿◡) 
-喜欢的点个星标口八
+\n 此模组使用了Vibe Coding (✿◡‿◡) 
+\n 喜欢的点个星标口八
 
 ## 功能
 
