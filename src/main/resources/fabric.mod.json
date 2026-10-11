@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
-	"id": "xy_broadcast",
-	"version": "2.0.2",
+	"id": "xy_metro",
+	"version": "2.0.3",
 	"name": "Xy Broadcast Metro",
 	"description": "Xy Broadcast Metro: sign-title broadcast on moving minecarts, golden-hoe region selection, /xy station & line management, minecart spawn/stop/launch. Server-side only, vanilla clients work.",
 	"authors": [],
@@ -9,7 +9,7 @@
 	"environment": "server",
 	"entrypoints": {
 		"server": [
-			"__xingyu_broadcast.Xy_broadcast"
+			"xy_metro.Xy_broadcast"
 		]
 	},
 	"depends": {

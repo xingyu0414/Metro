@@ -1,4 +1,4 @@
-package __xingyu_broadcast.util; // 语言工具包：服务端 lang.json 加载与渲染
+package xy_metro.util; // 语言工具包：服务端 lang.json 加载与渲染
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -6,7 +6,7 @@ import com.google.gson.JsonParser;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.text.Text;
 
-import __xingyu_broadcast.Xy_broadcast;
+import xy_metro.Xy_broadcast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 服务端语言文件：config/xy_broadcast/lang.json
+ * 服务端语言文件：config/xy_metro/lang.json
  * 模组为纯服务端，无法使用原版客户端翻译键，
  * 因此在服务端加载 JSON，用 & 色号 + {占位符} 渲染后以字面文本发送。
  * 默认文件随 jar 发布，首次运行时释放到 config 目录。
@@ -29,11 +29,11 @@ public class LangUtil {
     /** 加载语言文件：不存在则从 jar 内释放默认文件，再整体解析进内存 */
     public static void load() {
         Path path = FabricLoader.getInstance().getConfigDir() // 取模组公共 config 目录
-                .resolve("xy_broadcast").resolve("lang.json"); // 拼出本模组的语言文件路径 config/xy_broadcast/lang.json
+                .resolve("xy_metro").resolve("lang.json"); // 拼出本模组的语言文件路径 config/xy_metro/lang.json
         try {
             if (Files.notExists(path)) { // 首次运行：文件不存在
-                Files.createDirectories(path.getParent()); // 先确保 config/xy_broadcast 目录存在
-                try (InputStream in = LangUtil.class.getResourceAsStream("/assets/xy_broadcast/lang.json")) { // 从 jar 内读默认语言文件
+                Files.createDirectories(path.getParent()); // 先确保 config/xy_metro 目录存在
+                try (InputStream in = LangUtil.class.getResourceAsStream("/assets/xy_metro/lang.json")) { // 从 jar 内读默认语言文件
                     if (in != null) Files.copy(in, path); // jar 内存在则复制释放到 config 目录
                 }
             }

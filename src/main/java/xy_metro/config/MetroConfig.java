@@ -1,4 +1,4 @@
-package __xingyu_broadcast.config; // 配置包：停靠区/线路数据结构与 JSON 持久化
+package xy_metro.config; // 配置包：停靠区/线路数据结构与 JSON 持久化
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -97,7 +97,7 @@ public class MetroConfig {
 
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting().disableHtmlEscaping().create(); // Gson 实例：美化输出 + 不转义 & 等符号
-    private static final Path CONFIG_DIR = FabricLoader.getInstance().getConfigDir().resolve("xy_broadcast"); // 配置目录 config/xy_broadcast
+    private static final Path CONFIG_DIR = FabricLoader.getInstance().getConfigDir().resolve("xy_metro"); // 配置目录 config/xy_metro
     private static final Path STOPS_FILE = CONFIG_DIR.resolve("stops.json"); // 停靠区持久化文件
     private static final Path LINES_FILE = CONFIG_DIR.resolve("lines.json"); // 线路持久化文件
 

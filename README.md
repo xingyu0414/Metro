@@ -25,9 +25,9 @@ Minecraft 1.21.11 Fabric **服务端**地铁广播模组：是Metro插件的fabr
 
 ## 安装
 
-1. 从 [Releases](https://github.com/xingyu0414/Metro/releases) 下载 `xy_broadcast-2.0.2.jar`
+1. 从 [Releases](https://github.com/xingyu0414/Metro/releases) 下载 `xy_metro-2.0.3.jar`
 2. 放入服务端 `mods/` 目录，同时放入 Fabric API
-3. 启动服务端，首次运行自动生成 `config/xy_broadcast/` 配置目录
+3. 启动服务端，首次运行自动生成 `config/xy_metro/` 配置目录
 
 ## 快速上手
 
@@ -93,13 +93,15 @@ Minecraft 1.21.11 Fabric **服务端**地铁广播模组：是Metro插件的fabr
 
 ## 配置文件
 
-位于 `config/xy_broadcast/`，全部为 JSON：
+位于 `config/xy_metro/`，全部为 JSON：
 
 | 文件 | 说明 |
 |------|------|
 | `lang.json` | 全部提示文案（语言配置） + 站台 Title 样式（`title` 段可调：开关、淡入/停留/淡出时长、刷新间隔、上下屏模板） |
 | `stops.json` | 停靠区数据（命令修改后自动落盘，无需手改） |
 | `lines.json` | 线路数据（命令修改后自动落盘，无需手改） |
+
+> 从 2.0.2 及更早版本（mod id 为 `xy_broadcast`）升级：请手动将旧目录 `config/xy_broadcast/` 下的数据文件移动到 `config/xy_metro/`，否则站点与线路数据不会被加载。
 
 文案与模板均支持 `&` 色号和 `{占位符}`（如 `{stop_name}`、`{terminal}`、`{next}`）。
 
@@ -113,5 +115,5 @@ Minecraft 1.21.11 Fabric **服务端**地铁广播模组：是Metro插件的fabr
 # 首次构建需联网下载 Minecraft 与映射文件
 ./gradlew build
 
-# 产物位于 build/libs/xy_broadcast-2.0.2.jar
+# 产物位于 build/libs/xy_metro-2.0.3.jar
 ```

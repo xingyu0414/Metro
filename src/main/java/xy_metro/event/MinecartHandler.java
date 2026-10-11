@@ -1,9 +1,9 @@
-package __xingyu_broadcast.event; // 事件处理包：矿车生成/停车/发车全流程
+package xy_metro.event; // 事件处理包：矿车生成/停车/发车全流程
 
-import __xingyu_broadcast.Xy_broadcast;
-import __xingyu_broadcast.config.MetroConfig;
-import __xingyu_broadcast.config.MetroConfig.StopData;
-import __xingyu_broadcast.util.LangUtil;
+import xy_metro.Xy_broadcast;
+import xy_metro.config.MetroConfig;
+import xy_metro.config.MetroConfig.StopData;
+import xy_metro.util.LangUtil;
 import net.minecraft.block.AbstractRailBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.enums.RailShape;

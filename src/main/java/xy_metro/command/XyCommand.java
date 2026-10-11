@@ -1,17 +1,17 @@
-package __xingyu_broadcast.command; // 命令包：/xy 命令树与全部子命令实现
+package xy_metro.command; // 命令包：/xy 命令树与全部子命令实现
 
-import __xingyu_broadcast.config.MetroConfig;
+import xy_metro.config.MetroConfig;
 
-import __xingyu_broadcast.config.MetroConfig.LineData;
+import xy_metro.config.MetroConfig.LineData;
 
-import __xingyu_broadcast.config.MetroConfig.Pos;
+import xy_metro.config.MetroConfig.Pos;
 
-import __xingyu_broadcast.config.MetroConfig.StopData;
+import xy_metro.config.MetroConfig.StopData;
 
-import __xingyu_broadcast.event.GoldenHoeHandler;
-import __xingyu_broadcast.event.MinecartHandler;
-import __xingyu_broadcast.util.LangUtil;
-import __xingyu_broadcast.util.Perms;
+import xy_metro.event.GoldenHoeHandler;
+import xy_metro.event.MinecartHandler;
+import xy_metro.util.LangUtil;
+import xy_metro.util.Perms;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -199,7 +199,7 @@ public class XyCommand {
         xy.then(CommandManager.literal("reload") // /xy reload：重载语言文件
             .requires(Perms.require("xy.command.reload", PermissionLevel.MODERATORS)) // 管理类节点
             .executes(ctx -> { // 执行体
-            LangUtil.load(); // 重新读取 config/xy_broadcast/lang.json
+            LangUtil.load(); // 重新读取 config/xy_metro/lang.json
             ctx.getSource().sendFeedback(() -> LangUtil.text("plugin.reload_success"), false); // 反馈成功
             return 1; // 成功
         }));

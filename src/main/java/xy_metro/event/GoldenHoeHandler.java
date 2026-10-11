@@ -1,7 +1,7 @@
-package __xingyu_broadcast.event; // 事件处理包：金锄头选区监听
+package xy_metro.event; // 事件处理包：金锄头选区监听
 
-import __xingyu_broadcast.config.MetroConfig.Pos;
-import __xingyu_broadcast.util.LangUtil;
+import xy_metro.config.MetroConfig.Pos;
+import xy_metro.util.LangUtil;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.*;

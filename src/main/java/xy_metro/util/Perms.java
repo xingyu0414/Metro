@@ -1,6 +1,6 @@
-package __xingyu_broadcast.util; // 权限工具包：LuckPerms + 原版兜底
+package xy_metro.util; // 权限工具包：LuckPerms + 原版兜底
 
-import __xingyu_broadcast.Xy_broadcast;
+import xy_metro.Xy_broadcast;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;

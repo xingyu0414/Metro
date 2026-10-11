@@ -1,13 +1,13 @@
-package __xingyu_broadcast; // 模组根包：主入口与 tick 调度
+package xy_metro; // 模组根包：主入口与 tick 调度
 
-import __xingyu_broadcast.command.XyCommand;
-import __xingyu_broadcast.config.MetroConfig;
-import __xingyu_broadcast.config.MetroConfig.Pos;
-import __xingyu_broadcast.config.MetroConfig.StopData;
-import __xingyu_broadcast.event.GoldenHoeHandler;
-import __xingyu_broadcast.event.MinecartHandler;
-import __xingyu_broadcast.util.LangUtil;
-import __xingyu_broadcast.util.TextUtil;
+import xy_metro.command.XyCommand;
+import xy_metro.config.MetroConfig;
+import xy_metro.config.MetroConfig.Pos;
+import xy_metro.config.MetroConfig.StopData;
+import xy_metro.event.GoldenHoeHandler;
+import xy_metro.event.MinecartHandler;
+import xy_metro.util.LangUtil;
+import xy_metro.util.TextUtil;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -46,7 +46,7 @@ import java.util.UUID;
 /** 模组主入口：初始化各模块 + 每 tick 驱动告示牌广播/站台信息/矿车逻辑/右键铁轨乘车 */
 public class Xy_broadcast implements DedicatedServerModInitializer {
 
-    public static final String MOD_ID = "xy_broadcast"; // 模组id（与 fabric.mod.json 一致）
+    public static final String MOD_ID = "xy_metro"; // 模组id（与 fabric.mod.json 一致）
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID); // 全模组共用日志器
 
     private static MinecraftServer SERVER; // 服务端实例引用（tick 时刷新，供子模块取玩家/世界/实体）

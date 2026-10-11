@@ -1,4 +1,4 @@
-package __xingyu_broadcast.util; // 文本工具包：& 色号解析
+package xy_metro.util; // 文本工具包：& 色号解析
 
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
