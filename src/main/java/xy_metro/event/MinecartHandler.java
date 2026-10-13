@@ -1,6 +1,6 @@
 package xy_metro.event; // 事件处理包：矿车生成/停车/发车全流程
 
-import xy_metro.Xy_broadcast;
+import xy_metro.__xingyu_metro;
 import xy_metro.config.MetroConfig;
 import xy_metro.config.MetroConfig.StopData;
 import xy_metro.util.LangUtil;
