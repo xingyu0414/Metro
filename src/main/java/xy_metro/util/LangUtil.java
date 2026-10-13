@@ -6,7 +6,7 @@ import com.google.gson.JsonParser;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.text.Text;
 
-import xy_metro.Xy_broadcast;
+import xy_metro.__xingyu_metro;
 
 import java.io.IOException;
 import java.io.InputStream;
