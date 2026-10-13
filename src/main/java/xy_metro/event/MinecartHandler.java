@@ -54,12 +54,12 @@ public class MinecartHandler {
 
     /** 注册延迟任务：delay tick 后执行 action */
     public static void schedule(long delay, Runnable action) {
-        TASKS.add(new Task(Xy_broadcast.currentTick() + delay, action)); // 记录到期时间与动作
+        TASKS.add(new Task(__xingyu_metro.currentTick() + delay, action)); // 记录到期时间与动作
     }
 
     /** 每 tick 调度：到期任务、到点发车、终点下车、首发/滑行状态清理 */
     public static void tick() {
-        long now = Xy_broadcast.currentTick(); // 当前tick
+        long now = __xingyu_metro.currentTick(); // 当前tick
 
         // 处理延迟任务：先摘出到期任务再执行，
         // 因为任务内部会 schedule() 追加新任务（如生成矿车后安排发车），
@@ -102,7 +102,7 @@ public class MinecartHandler {
         while (tit.hasNext()) { // 遍历待下车的玩家
             var e = tit.next(); // 取当前条目
             if (now >= e.getValue()) { // 5 秒已到
-                ServerPlayerEntity p = Xy_broadcast.server().getPlayerManager().getPlayer(e.getKey()); // 按uuid找玩家
+                ServerPlayerEntity p = __xingyu_metro.server().getPlayerManager().getPlayer(e.getKey()); // 按uuid找玩家
                 if (p != null && p.getVehicle() instanceof AbstractMinecartEntity cart) { // 玩家还在且仍在矿车上
                     cart.discard(); // 直接删除矿车（玩家随之落地）
                     p.sendMessage(LangUtil.text("interact.terminus_kick"), false); // 提示已到达终点
@@ -183,7 +183,7 @@ public class MinecartHandler {
         if (hasMinecartAhead(world, cart.getBlockPos(), dir, 3, cart.getUuid())) { // 前方 3 格内有其他矿车
             BlockPos block = cart.getBlockPos(); // 当前位置（日志用）
             if (attempt == 0) { // 首次发现阻挡：记录详细日志并通知乘客
-                Xy_broadcast.LOGGER.error( // error 级：需要管理员关注
+                __xingyu_metro.LOGGER.error( // error 级：需要管理员关注
                         "[XyBroadcast] 发车失败：站台 {} 矿车位于 ({},{},{}) 前方 3 格内有矿车阻挡，将自动重试", // 详情
                         sd.id, block.getX(), block.getY(), block.getZ()); // 站台id + 坐标
                 notifyPassenger(cart, LangUtil.text("interact.launch_blocked")); // 乘客提示：前方受阻自动重试
@@ -194,7 +194,7 @@ public class MinecartHandler {
                     if (c != null && !c.isRemoved()) launchCart(c, sd, attempt + 1); // 仍存在则递归重试
                 });
             } else { // 重试次数用尽
-                Xy_broadcast.LOGGER.error( // 放弃发车：需要人工清理轨道
+                __xingyu_metro.LOGGER.error( // 放弃发车：需要人工清理轨道
                         "[XyBroadcast] 发车放弃：站台 {} 前方轨道持续被矿车阻挡，请清理轨道；乘客下车可回收矿车", sd.id); // 给管理员的指引
                 notifyPassenger(cart, LangUtil.text("interact.launch_blocked_giveup")); // 乘客提示：发车失败
             }
@@ -211,7 +211,7 @@ public class MinecartHandler {
         Direction.Axis axis = railAxis(w, railPos); // 查脚下铁轨的走向轴
         if (axis == null || axis == byYaw.getAxis()) return byYaw; // 非铁轨/弯道/方向与轨道同轴：直接用 yaw 方向
         if (DIRECTION_WARNED.add(sd.id)) { // 方向与轨道垂直：自动修正，但每站只警告一次
-            Xy_broadcast.LOGGER.warn( // 警告管理员重新 setdirect
+            __xingyu_metro.LOGGER.warn( // 警告管理员重新 setdirect
                     "[XyBroadcast] 站台 {} 记录的发车朝向与铁轨走向垂直，已自动沿铁轨修正；建议重新执行 /xy stop setdirect", sd.id); // 详情
         }
         if (axis == Direction.Axis.X) { // 轨道沿 x 轴：只可能在东/西
@@ -248,12 +248,12 @@ public class MinecartHandler {
     /** 终点站广播：提醒停靠区内的玩家到对侧站台乘车 */
     private static void broadcastTerminusNotice(StopData sd, ServerWorld world, ServerPlayerEntity trigger) {
         String worldId = world.getRegistryKey().getValue().toString(); // 世界id
-        for (ServerPlayerEntity p : Xy_broadcast.server().getPlayerManager().getPlayerList()) { // 遍历在线玩家
+        for (ServerPlayerEntity p : __xingyu_metro.server().getPlayerManager().getPlayerList()) { // 遍历在线玩家
             if (sd.contains(MetroConfig.Pos.from(world, p.getEntityPos()), worldId)) { // 位于该终点站区域内
                 p.sendMessage(LangUtil.text("interact.terminus_notice"), false); // 广播：此站为终点，请到对侧乘车
             }
         }
-        Xy_broadcast.LOGGER.info("[XyBroadcast] 玩家 {} 尝试在终点站 {} 乘车，已广播提示", // 记录事件
+        __xingyu_metro.LOGGER.info("[XyBroadcast] 玩家 {} 尝试在终点站 {} 乘车，已广播提示", // 记录事件
                 trigger.getName().getString(), sd.id); // 触发玩家名 + 站台id
     }
 
@@ -333,10 +333,10 @@ public class MinecartHandler {
         cart.velocityDirty = true; // 强制同步到客户端
         if (isTerminusStop(sd.id)) { // 终点站流程
             player.sendMessage(LangUtil.text("interact.terminus_board", "seconds", "5"), true); // 提示 5 秒后下车
-            TERMINUS_DISMOUNT.put(player.getUuid(), Xy_broadcast.currentTick() + 100); // 100 tick 后强制下车
+            TERMINUS_DISMOUNT.put(player.getUuid(), __xingyu_metro.currentTick() + 100); // 100 tick 后强制下车
         } else { // 中途站流程
             player.sendMessage(LangUtil.text("interact.stop_wait", "seconds", "4"), true); // 提示停车 4 秒
-            STOP_SCHEDULE.put(cart.getUuid(), Xy_broadcast.currentTick() + 80); // 80 tick 后自动发车
+            STOP_SCHEDULE.put(cart.getUuid(), __xingyu_metro.currentTick() + 80); // 80 tick 后自动发车
         }
     }
 
@@ -399,7 +399,7 @@ public class MinecartHandler {
 
     /** 全服各维度按 uuid 查找矿车实体；找不到返回 null */
     private static AbstractMinecartEntity findCart(UUID id) {
-        var s = Xy_broadcast.server(); // 取服务端实例
+        var s = __xingyu_metro.server(); // 取服务端实例
         if (s == null) return null; // 服务端未就绪
         for (ServerWorld w : s.getWorlds()) { // 遍历所有维度
             var e = w.getEntity(id); // 按uuid查实体

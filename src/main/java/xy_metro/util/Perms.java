@@ -31,10 +31,10 @@ public final class Perms {
             try {
                 Lp.warmup(); // 触碰 LuckPermsProvider 类：未装 LuckPerms 时此处抛 NoClassDefFoundError
                 available = true; // 到这里说明 LuckPerms 已安装且 API 已初始化
-                Xy_broadcast.LOGGER.info("[XyBroadcast] 已检测到 LuckPerms，命令改由权限节点控制"); // 记录探测结果
+                __xingyu_metro.LOGGER.info("[XyBroadcast] 已检测到 LuckPerms，命令改由权限节点控制"); // 记录探测结果
             } catch (Throwable t) { // 捕获 Throwable：同时覆盖缺类错误与 API 未初始化异常
                 available = false; // 标记不可用，后续检查全部走原版兜底
-                Xy_broadcast.LOGGER.info("[XyBroadcast] 未检测到 LuckPerms，命令使用原版权限等级兜底"); // 记录回退
+                __xingyu_metro.LOGGER.info("[XyBroadcast] 未检测到 LuckPerms，命令使用原版权限等级兜底"); // 记录回退
             }
         }
         return available; // 返回缓存的探测结论
@@ -51,7 +51,7 @@ public final class Perms {
                 if (ts != Tristate.UNDEFINED) return ts == Tristate.TRUE; // 显式结果直接生效（显式拒绝优先于原版等级）
             } catch (Throwable t) { // 查询中途失败（如 LuckPerms 被热卸载）
                 available = false; // 记失效，后续检查不再走 LuckPerms
-                Xy_broadcast.LOGGER.warn("[XyBroadcast] LuckPerms 查询失败，本次起回退原版权限等级", t); // 记录异常
+                __xingyu_metro.LOGGER.warn("[XyBroadcast] LuckPerms 查询失败，本次起回退原版权限等级", t); // 记录异常
             }
         }
         return source.getPermissions().hasPermission(new Permission.Level(fallback)); // 原版兜底：按传入等级（1.21.11 新版权限体系）

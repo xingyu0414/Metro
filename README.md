@@ -112,8 +112,8 @@ Minecraft 1.21.11 Fabric **服务端**地铁广播模组：是Metro插件的fabr
 ## 从源码构建
 
 ```bash
-# 首次构建需联网下载 Minecraft 与映射文件
-./gradlew build
+# 需本机安装 Gradle 9.2.1+（仓库已移除 wrapper），首次构建需联网下载 Minecraft 与映射文件
+gradle build
 
 # 产物位于 build/libs/xy_metro-2.0.3.jar
 ```

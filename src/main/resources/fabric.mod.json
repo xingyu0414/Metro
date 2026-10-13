@@ -9,7 +9,7 @@
 	"environment": "server",
 	"entrypoints": {
 		"server": [
-			"xy_metro.Xy_broadcast"
+			"xy_metro.__xingyu_metro"
 		]
 	},
 	"depends": {

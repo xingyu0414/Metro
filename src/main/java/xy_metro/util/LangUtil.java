@@ -43,14 +43,14 @@ public class LangUtil {
                     if (el.isJsonObject()) { // 必须是 JSON 对象
                         ROOT = el.getAsJsonObject(); // 整体替换内存中的语言树
                         WARNED.clear(); // 语言键可能已补全，清空缺失警告缓存
-                        Xy_broadcast.LOGGER.info("[XyBroadcast] 已加载语言文件 {}", path); // 记录加载成功
+                        __xingyu_metro.LOGGER.info("[XyBroadcast] 已加载语言文件 {}", path); // 记录加载成功
                         return; // 加载完成
                     }
                 }
             }
-            Xy_broadcast.LOGGER.error("[XyBroadcast] 语言文件缺失或格式错误: {}", path); // 走到这里 = 文件不存在或不是 JSON 对象
+            __xingyu_metro.LOGGER.error("[XyBroadcast] 语言文件缺失或格式错误: {}", path); // 走到这里 = 文件不存在或不是 JSON 对象
         } catch (IOException e) { // 文件读写失败
-            Xy_broadcast.LOGGER.error("[XyBroadcast] 语言文件加载失败", e); // 记录 IO 异常
+            __xingyu_metro.LOGGER.error("[XyBroadcast] 语言文件加载失败", e); // 记录 IO 异常
         }
     }
 
@@ -87,7 +87,7 @@ public class LangUtil {
     public static String format(String path, String... kv) {
         String tpl = raw(path); // 取模板原文
         if (tpl == null) { // 语言键缺失
-            if (WARNED.add(path)) Xy_broadcast.LOGGER.warn("[XyBroadcast] 语言键缺失: {}", path); // 每个键只警告一次
+            if (WARNED.add(path)) __xingyu_metro.LOGGER.warn("[XyBroadcast] 语言键缺失: {}", path); // 每个键只警告一次
             return path; // 兜底：直接把键名当文本返回，便于排查
         }
         for (int i = 0; i + 1 < kv.length; i += 2) { // kv 两两一组（key, value）
