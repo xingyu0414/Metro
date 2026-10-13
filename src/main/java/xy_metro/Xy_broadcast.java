@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /** 模组主入口：初始化各模块 + 每 tick 驱动告示牌广播/站台信息/矿车逻辑/右键铁轨乘车 */
-public class Xy_broadcast implements DedicatedServerModInitializer {
+public class __xingyu_metro implements DedicatedServerModInitializer {
 
     public static final String MOD_ID = "xy_metro"; // 模组id（与 fabric.mod.json 一致）
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID); // 全模组共用日志器
